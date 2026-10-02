@@ -1,4 +1,4 @@
-# GitHub User & Derived State Aggregator
+# GitHub User Repository Aggregator
 
 A React application for finding GitHub users, comparing their repositories, and ranking selected users by their repositories’ total open issue count. User search and repository data come from the public GitHub REST API.
 
