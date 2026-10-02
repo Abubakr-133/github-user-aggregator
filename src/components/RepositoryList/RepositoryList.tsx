@@ -117,10 +117,22 @@ function UserRepositoryAccordion({
                         </p>
                       )}
                       <p className="repository-list__issues">
-                        {repository.openIssuesCount}{' '}
-                        {repository.openIssuesCount === 1
-                          ? 'open issue'
-                          : 'open issues'}
+                        {repository.language !== null && (
+                          <>
+                            <span>{repository.language}</span>
+                            <span aria-hidden="true">·</span>
+                          </>
+                        )}
+                        <span aria-label={`${repository.stargazersCount} stars`}>
+                          ⭐ {repository.stargazersCount}
+                        </span>
+                        <span aria-hidden="true">·</span>
+                        <span>
+                          {repository.openIssuesCount}{' '}
+                          {repository.openIssuesCount === 1
+                            ? 'open issue'
+                            : 'open issues'}
+                        </span>
                       </p>
                     </li>
                   ))}

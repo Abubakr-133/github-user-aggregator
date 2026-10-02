@@ -163,6 +163,10 @@
 
 .repository-list__issues {
   color: var(--text-strong);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 7px;
 }
 
 @media (max-width: 520px) {

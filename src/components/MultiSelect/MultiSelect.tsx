@@ -15,7 +15,7 @@ interface MultiSelectProps {
   onChange: (users: GitHubUser[]) => void
 }
 
-const DEBOUNCE_DELAY_MS = 300
+const DEBOUNCE_DELAY_MS = 500
 
 function isAbortError(error: unknown): boolean {
   return (

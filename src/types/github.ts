@@ -11,6 +11,8 @@ export interface GitHubRepository {
   fullName: string
   htmlUrl: string
   description: string | null
+  stargazersCount: number
+  language: string | null
   openIssuesCount: number
 }
 

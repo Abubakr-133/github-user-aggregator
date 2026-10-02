@@ -145,6 +145,8 @@ function mapRepository(value: unknown): GitHubRepository {
     typeof value.full_name !== 'string' ||
     typeof value.html_url !== 'string' ||
     (typeof value.description !== 'string' && value.description !== null) ||
+    typeof value.stargazers_count !== 'number' ||
+    (typeof value.language !== 'string' && value.language !== null) ||
     typeof value.open_issues_count !== 'number'
   ) {
     throw new Error('GitHub repository response contained an unexpected entry.')
@@ -156,6 +158,8 @@ function mapRepository(value: unknown): GitHubRepository {
     fullName: value.full_name,
     htmlUrl: value.html_url,
     description: value.description,
+    stargazersCount: value.stargazers_count,
+    language: value.language,
     openIssuesCount: value.open_issues_count,
   }
 }
