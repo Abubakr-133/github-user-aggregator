@@ -1,0 +1,117 @@
+.leaderboard {
+  min-width: 0;
+}
+
+.leaderboard__empty {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.leaderboard__incomplete {
+  margin-bottom: 16px;
+  padding: 13px 15px;
+  border: 1px solid var(--warning-border);
+  border-radius: 8px;
+  background: var(--warning-surface);
+  color: var(--warning-text);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.leaderboard__incomplete-message {
+  margin: 0;
+}
+
+.leaderboard__user-status {
+  margin-top: 10px;
+}
+
+.leaderboard__user-status h3 {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+}
+
+.leaderboard__user-status ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.leaderboard__user-status--error {
+  color: var(--danger);
+}
+
+.leaderboard__ranking {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: leaderboard;
+}
+
+.leaderboard__entry {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+}
+
+.leaderboard__rank {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.leaderboard__identity {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+  color: var(--text-strong);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.leaderboard__identity img {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--border-subtle);
+}
+
+.leaderboard__score {
+  color: var(--text-strong);
+  font-size: 0.9rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .leaderboard__entry {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 10px;
+    padding: 11px 12px;
+  }
+
+  .leaderboard__rank {
+    grid-column: 1 / -1;
+  }
+
+  .leaderboard__identity {
+    min-width: 0;
+  }
+
+  .leaderboard__score {
+    white-space: normal;
+    text-align: right;
+  }
+}

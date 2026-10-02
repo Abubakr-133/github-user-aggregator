@@ -1,0 +1,187 @@
+.repository-list {
+  min-width: 0;
+}
+
+.repository-list__users,
+.repository-list__repositories {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.repository-list__users {
+  display: grid;
+  gap: 14px;
+}
+
+.repository-list__user {
+  min-width: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+}
+
+.repository-list__heading {
+  margin: 0;
+}
+
+.repository-list__toggle {
+  display: grid;
+  width: 100%;
+  min-height: 64px;
+  grid-template-columns: 38px minmax(0, 1fr) 32px;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 15px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.repository-list__toggle:hover {
+  background: var(--surface-muted);
+}
+
+.repository-list__toggle:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.repository-list__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--border-subtle);
+}
+
+.repository-list__user-info {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.repository-list__username {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.repository-list__summary {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.repository-list__chevron {
+  color: var(--text-secondary);
+  font-size: 1.4rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.repository-list__panel {
+  min-width: 0;
+  padding: 0 15px 15px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.repository-list__panel[hidden] {
+  display: none;
+}
+
+.repository-list__panel-heading {
+  margin: 13px 0 10px;
+  color: var(--text-strong);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.repository-list__status,
+.repository-list__error,
+.repository-list__empty {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.repository-list__error {
+  color: var(--danger);
+}
+
+.repository-list__repositories {
+  display: grid;
+  gap: 12px;
+}
+
+.repository-list__repository {
+  min-width: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+  overflow-wrap: anywhere;
+}
+
+.repository-list__repository:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.repository-list__repository a {
+  color: var(--accent);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.repository-list__repository a:hover {
+  text-decoration: underline;
+}
+
+.repository-list__repository a:focus-visible {
+  border-radius: 2px;
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.repository-list__description,
+.repository-list__issues {
+  margin: 5px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+
+.repository-list__issues {
+  color: var(--text-strong);
+}
+
+@media (max-width: 520px) {
+  .repository-list__users {
+    gap: 10px;
+  }
+
+  .repository-list__toggle {
+    grid-template-columns: 34px minmax(0, 1fr) 30px;
+    gap: 8px;
+    padding: 11px 10px;
+  }
+
+  .repository-list__avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .repository-list__panel {
+    padding: 0 10px 12px;
+  }
+}
