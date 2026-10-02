@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import type {
   GitHubUser,
   LeaderboardEntry,
@@ -14,7 +15,6 @@ export function Leaderboard({
   selectedUsers,
   repositoriesByUser,
 }: LeaderboardProps) {
-  const scores: LeaderboardEntry[] = []
   const loadingUsers: GitHubUser[] = []
   const errorUsers: Array<{ user: GitHubUser; message: string }> = []
 
@@ -28,26 +28,37 @@ export function Leaderboard({
         user,
         message: userState.error || 'Could not load this user’s repositories.',
       })
-    } else {
+    }
+  }
+
+  const scores = useMemo(() => {
+    const derivedScores: LeaderboardEntry[] = []
+
+    for (const user of selectedUsers) {
+      const userState = repositoriesByUser[user.login]
+      if (userState?.status !== 'success') continue
+
       const openIssuesCount = userState.repositories.reduce(
         (total, repository) => total + repository.openIssuesCount,
         0,
       )
-      scores.push({ user, openIssuesCount })
+      derivedScores.push({ user, openIssuesCount })
     }
-  }
 
-  scores.sort((left, right) => {
-    const scoreOrder = right.openIssuesCount - left.openIssuesCount
-    if (scoreOrder !== 0) return scoreOrder
+    derivedScores.sort((left, right) => {
+      const scoreOrder = right.openIssuesCount - left.openIssuesCount
+      if (scoreOrder !== 0) return scoreOrder
 
-    const leftLogin = left.user.login.toLowerCase()
-    const rightLogin = right.user.login.toLowerCase()
-    return (
-      leftLogin.localeCompare(rightLogin) ||
-      left.user.login.localeCompare(right.user.login)
-    )
-  })
+      const leftLogin = left.user.login.toLowerCase()
+      const rightLogin = right.user.login.toLowerCase()
+      return (
+        leftLogin.localeCompare(rightLogin) ||
+        left.user.login.localeCompare(right.user.login)
+      )
+    })
+
+    return derivedScores
+  }, [selectedUsers, repositoriesByUser])
 
   const hasIncompleteData = loadingUsers.length > 0 || errorUsers.length > 0
 
